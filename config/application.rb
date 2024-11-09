@@ -30,15 +30,7 @@ module GymAttendanceBackend
     config.api_only = true
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3001' # Local development URL
-        resource '*',
-          headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      end
-    
-      # For production, only allow the frontend's domain
-      allow do
-        origins 'https://gym-attendance-frontend.com' # Replace with your frontend production URL
+        origins 'http://localhost:3001' # Frontend URL in development, update for production if needed
         resource '*',
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
